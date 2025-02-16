@@ -15,10 +15,10 @@ class Program
         protected override void OnMessage(MessageEventArgs e)
         {
             XSOApiObject? apiObject = JsonConvert.DeserializeObject<XSOApiObject>(Encoding.ASCII.GetString(e.RawData));
-            XSONotificationObject? notif = JsonConvert.DeserializeObject<XSONotificationObject>(apiObject.jsonData);
-            Console.WriteLine($"Notification: {notif.title} - {notif.content}");
             if (apiObject.command == "SendNotification")
             {
+                XSONotificationObject? notif = JsonConvert.DeserializeObject<XSONotificationObject>(apiObject.jsonData);
+                Console.WriteLine($"Notification: {notif.title} - {notif.content}");
                 // TODO: Is there a way to send notifications easily on Windows?
                 if (RuntimeInformation.IsOSPlatform(OSPlatform.Linux))
                 {
