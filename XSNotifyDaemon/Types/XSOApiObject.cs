@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace GorillaXS.Types
+namespace XSNotifyDaemon.Types
 {
     /// <summary>
     /// API object that is serialized into JSON. This is the final object that gets sent to XSOverlay via WebSockets.

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace GorillaXS.Types
+namespace XSNotifyDaemon.Types
 {
     /// <summary>
     /// Object containing parameters pertaining to the notification. This data is serialized into JSON and included in the API object.
