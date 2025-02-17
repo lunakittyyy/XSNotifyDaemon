@@ -27,7 +27,22 @@ class Program
                     {
                         Process proc = new Process();
                         proc.StartInfo.FileName = "notify-send";
-                        proc.StartInfo.Arguments = $"-t {timeoutMs} \"{notif.title}\" \"{notif.content}\"";
+                        if (notif.useBase64Icon)
+                        {
+                            try
+                            {
+                                var iconBytes = Convert.FromBase64String(notif.icon);
+                                File.WriteAllBytes("/tmp/xsnd-icon", iconBytes);
+                                proc.StartInfo.Arguments =
+                                    $"--icon=/tmp/xsnd-icon -t {timeoutMs} \"{notif.title}\" \"{notif.content}\"";
+                            }
+                            catch (Exception ex)
+                            {
+                                Console.WriteLine($"Error saving icon, giving up and using an icon-less notification... {ex.Message}");
+                                proc.StartInfo.Arguments = $"-t {timeoutMs} \"{notif.title}\" \"{notif.content}\"";
+                            }
+                        }
+                        else proc.StartInfo.Arguments = $"-t {timeoutMs} \"{notif.title}\" \"{notif.content}\"";
                         proc.Start();
                     }
                     catch (Exception ex)
