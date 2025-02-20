@@ -18,7 +18,7 @@ class Program
             if (apiObject.command == "SendNotification")
             {
                 XSONotificationObject? notif = JsonConvert.DeserializeObject<XSONotificationObject>(apiObject.jsonData);
-                Console.WriteLine($"Notification: {notif.title} - {notif.content}");
+                Console.WriteLine($"[{DateTime.Now}] [WS] {notif.title} - {notif.content}");
                 // TODO: Is there a way to send notifications easily on Windows?
                 if (RuntimeInformation.IsOSPlatform(OSPlatform.Linux))
                 {
