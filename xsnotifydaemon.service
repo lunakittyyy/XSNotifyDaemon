@@ -1,0 +1,10 @@
+[Unit]
+Description=Open source XSOverlay notification API reimplementation
+After=network.target
+
+[Service]
+Restart=on-failure
+ExecStart=/usr/bin/xsnotifydaemon/XSNotifyDaemon
+
+[Install]
+WantedBy=multi-user.target

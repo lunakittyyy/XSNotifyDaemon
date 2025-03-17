@@ -64,8 +64,6 @@ class Program
         websocketServer.AddWebSocketService<XSEmulator>("/");
         Console.WriteLine("Opening websocket server at 127.0.0.1:42070");
         websocketServer.Start();
-        Console.ReadKey (true);
-        Console.WriteLine("Closing websocket server. Goodbye!");
-        websocketServer.Stop();
+        bool waitHandle = new ManualResetEvent(false).WaitOne();
     }
 }
