@@ -10,7 +10,9 @@ As of current, XSNotifyDaemon does not support the legacy UDP protocol in XSOver
 XSNotifyDaemon past release 0.1.0 (to be released soon) allows for it to be ran as a daemon.
 
 To use the included daemon:
-- Move the release files into ''/usr/bin/xsnotifydaemon''
-- Optionally symlink ''/usr/bin/XSNotifyDaemon'' to the main executable to make it availiable in your PATH
-- Install the systemd service in the repository root
-- Enable/start the service
+- Move the release files into ``/usr/bin/xsnotifydaemon``
+- Optionally symlink ``/usr/bin/XSNotifyDaemon`` to the main executable to make it availiable in your PATH
+- Install the systemd service located in the repository root into ``~/.config/systemd/user/``
+> [!IMPORTANT]  
+> Installing it as a userspace service is required for notifications to be sent correctly. If you install it as a system service, it will not work!
+- Enable and/or start the service with ``systemd --user enable xsnotifydaemon.service`` and ``systemd --user start xsnotifydaemon.service``
