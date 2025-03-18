@@ -1,10 +1,12 @@
 [Unit]
 Description=Open source XSOverlay notification API reimplementation
-After=network.target
+After=network.target graphical-session.target
+ConditionEnvironment=|WAYLAND_DISPLAY
+ConditionEnvironment=|DISPLAY
 
 [Service]
-Restart=on-failure
+Restart=always    
 ExecStart=/usr/bin/xsnotifydaemon/XSNotifyDaemon
 
 [Install]
-WantedBy=multi-user.target
+WantedBy=graphical-session.target
