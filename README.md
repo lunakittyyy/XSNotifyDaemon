@@ -6,8 +6,8 @@ Intended to be used with Linux and wlxoverlay-s, to provide XSOverlay notificati
 
 As of current, XSNotifyDaemon does not support the legacy UDP protocol in XSOverlay **nor** does it support Windows.  
 
-# Daemon
-XSNotifyDaemon past release 0.1.0 (to be released soon) allows for it to be ran as a daemon.
+# sytemd Service
+XSNotifyDaemon past release 0.1.0 (to be released soon) allows for it to be ran as a systemd service.
 
 To use the included daemon:
 - Move the release files into ``/usr/bin/xsnotifydaemon``
