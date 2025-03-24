@@ -15,4 +15,4 @@ To use the included daemon:
 - Install the systemd service located in the repository root into ``~/.config/systemd/user/``
 > [!IMPORTANT]  
 > Installing it as a userspace service is required for notifications to be sent correctly. If you install it as a system service, it will not work!
-- Enable and/or start the service with ``systemd --user enable xsnotifydaemon.service`` and ``systemd --user start xsnotifydaemon.service``
+- Enable and/or start the service with ``systemctl --user enable xsnotifydaemon.service`` and ``systemctl --user start xsnotifydaemon.service``
